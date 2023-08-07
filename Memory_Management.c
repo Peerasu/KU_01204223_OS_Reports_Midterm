@@ -38,5 +38,9 @@ int main() {
     printf("\n");
     global_show(&global_1, &global_2, &global_3);
 
+    free(heap_1);
+    free(heap_2);
+    free(heap_3);
+
     return 0;
 }
