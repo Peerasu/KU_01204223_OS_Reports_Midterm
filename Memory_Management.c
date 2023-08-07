@@ -19,6 +19,13 @@ void heap_show(int *heap_1, int *heap_2, int *heap_3) {
     printf("heap_3: %d\n", &(*heap_3));
 }
 
+void global_show(char* global_1_addr, char* global_2_addr, char* global_3_addr) {
+
+    printf("global_1: %d\n", global_1_addr);
+    printf("global_2: %d\n", global_2_addr);
+    printf("global_3: %d\n", global_3_addr);
+}
+
 
 int main() {
     int stack_1, stack_2 = 0, stack_3 = 1;
@@ -31,10 +38,7 @@ int main() {
     printf("\n");
     heap_show(heap_1, heap_2, heap_3);
     printf("\n");
-
-    printf("global_1: %d\n", &global_1);
-    printf("global_2: %d\n", &global_2);
-    printf("global_3: %d\n", &global_3);
+    global_show(&global_1, &global_2, &global_3);
 
     return 0;
 }
