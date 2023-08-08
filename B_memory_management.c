@@ -42,12 +42,5 @@ int main() {
     free(heap_2);
     free(heap_3);
 
-    free(&stack_1);
-    free(&stack_2);
-    free(&stack_3);
-    free(&global_1);
-    free(&global_2);
-    free(&global_3);
-
     return 0;
 }
