@@ -13,15 +13,15 @@ int stack_show(int n) {
 }
 
 void heap_show(int *heap_1, int *heap_2, int *heap_3) {
-    printf("heap_1: %p\n", &(*heap_1));
-    printf("heap_2: %p\n", &(*heap_2));
     printf("heap_3: %p\n", &(*heap_3));
+    printf("heap_2: %p\n", &(*heap_2));
+    printf("heap_1: %p\n", &(*heap_1));
 }
 
 void global_show(char* global_1_addr, char* global_2_addr, char* global_3_addr) {
     printf("global_1: %p\n", global_1_addr);
-    printf("global_2: %p\n", global_2_addr);
     printf("global_3: %p\n", global_3_addr);
+    printf("global_2: %p\n", global_2_addr);
 }
 
 
