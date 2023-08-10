@@ -1,4 +1,4 @@
-# KU_01204223_OS_Reports_Midterm 
+# KU_01204332_OS_Reports_Midterm 
 #### 6410504195 Peerasu Puttakul
 
-List of problems that I do (as of now): A, B, D
+List of problems that I do (and have file in this repository): A, B, D
