@@ -26,8 +26,6 @@ void global_show(char* global_1_addr, char* global_2_addr, char* global_3_addr) 
 
 
 int main() {
-    int stack_1, stack_2 = 0, stack_3 = 1;
-
     int *heap_1 = (int*)malloc(1*sizeof(int));
     int *heap_2 = (int*)malloc(1*sizeof(int));
     int *heap_3 = (int*)malloc(1*sizeof(int));
