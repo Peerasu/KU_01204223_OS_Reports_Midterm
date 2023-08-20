@@ -22,11 +22,14 @@ int main() {
 
     #pragma omp parallel
     {
-        long num = omp_get_num_threads();
-        long id = omp_get_thread_num();
+        long thread_num = omp_get_num_threads();
+        long thread_id = omp_get_thread_num();
 
-        for (long i=(id*input_size)/num; i<((id+1)*input_size)/num; i++) {
-            sum_thread[(id*input_size)/num] += input[i];
+        long first_index = (thread_id*input_size)/thread_num;
+        long last_index = ((thread_id+1)*input_size)/thread_num - 1;
+
+        for (long i=first_index; i<=last_index; i++) {
+            sum_thread[first_index] += input[i];
         }
     }
 
