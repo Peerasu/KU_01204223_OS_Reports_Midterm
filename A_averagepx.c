@@ -2,45 +2,42 @@
 #include<stdlib.h>
 #include<omp.h>
 
+// N = MAX_input_size
+long N = 500000;
+
 int main() {
-    int n=0, m=0, sum=0;
-    scanf("%d", &n);
+    long input_size = 0;
+    long n = 0;
+    long long sum = 0;
 
-    int *input = (int*)malloc(sizeof(int)*n);
-    for (int i=0; i<n; i++) {
-        scanf("%d", &m);
-        input[i] = m;
+    scanf("%ld", &input_size);
+
+    long *input = (long*)calloc(input_size, sizeof(long));
+    for (long i=0; i<input_size; i++) {
+        scanf("%ld", &n);
+        input[i] = n;
     }
 
-    int *sub_sum = (int*)malloc(sizeof(int)*n);
-    for (int i=0; i<n; i++) {
-        sub_sum[i] = 0;
-    }
+    long long *sum_thread = (long long*)calloc(N, sizeof(long long));
 
     #pragma omp parallel
     {
-        int num=omp_get_num_threads();
-        int id=omp_get_thread_num();
-        int s=0;
+        long num = omp_get_num_threads();
+        long id = omp_get_thread_num();
 
-        for (int i=id/num*n; i<(id+1)/num*n; i++) {
-            if (i == n) {
-                break;
-            }
-            s += input[i];
+        for (long i=(id*input_size)/num; i<((id+1)*input_size)/num; i++) {
+            sum_thread[(id*input_size)/num] += input[i];
         }
-
-        sub_sum[id] = s;
     }
 
-    for (int i=0; i<n; i++) {
-        sum += sub_sum[i];
+    for (long i=0; i<N; i++) {
+        sum += sum_thread[i];
     }
 
-    printf("%d\n", sum/n);
+    printf("%lld\n", sum/input_size);
 
     free(input);
-    free(sub_sum);
+    free(sum_thread);
 
     return 0;
 }
