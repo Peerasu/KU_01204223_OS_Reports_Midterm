@@ -13,7 +13,8 @@ start=0; end=0; time_input=0; time_output=0; time_for_loop=0; time_recursive=0
 
 # count input time
 start = time.perf_counter()
-text = open("test_IO.txt", "r")
+f = open("test_IO.txt", "r")
+text = f.read()
 end = time.perf_counter()
 time_input = (end-start)*pow(10, 6)
 
@@ -36,13 +37,11 @@ recursive(100)
 end = time.perf_counter()
 time_recursive = (end-start)*pow(10, 6)
 
-print("\nRESULT\n")
 print(f"time for input: {time_input} microseconds")
 print(f"time for output: {time_output} microseconds")
 print(f"time to do for loop 100 times: {time_for_loop} microseconds")
 print(f"time to call recursive function 100 times: {time_recursive} microseconds\n")
 
 f.close()
-text.close()
 os.remove("test_IO.txt")
 
