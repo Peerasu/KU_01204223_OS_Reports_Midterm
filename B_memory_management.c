@@ -12,19 +12,6 @@ int stack_show(int n) {
     return stack_show(n+1);
 }
 
-void heap_show(int *heap_1, int *heap_2, int *heap_3) {
-    printf("heap_3: %p\n", &(*heap_3));
-    printf("heap_2: %p\n", &(*heap_2));
-    printf("heap_1: %p\n", &(*heap_1));
-}
-
-void global_show(char* global_1_addr, char* global_2_addr, char* global_3_addr) {
-    printf("global_1: %p\n", global_1_addr);
-    printf("global_3: %p\n", global_3_addr);
-    printf("global_2: %p\n", global_2_addr);
-}
-
-
 int main() {
     int *heap_1 = (int*)malloc(1*sizeof(int));
     int *heap_2 = (int*)malloc(1*sizeof(int));
@@ -32,9 +19,15 @@ int main() {
 
     stack_show(1);
     printf("\n");
-    heap_show(heap_1, heap_2, heap_3);
+    
+    printf("heap_3: %p\n", &(*heap_3));
+    printf("heap_2: %p\n", &(*heap_2));
+    printf("heap_1: %p\n", &(*heap_1));
     printf("\n");
-    global_show(&global_1, &global_2, &global_3);
+
+    printf("global_1: %p\n", &global_1);
+    printf("global_3: %p\n", &global_3);
+    printf("global_2: %p\n", &global_2);
 
     free(heap_1);
     free(heap_2);
